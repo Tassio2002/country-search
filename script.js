@@ -1,5 +1,6 @@
 let searchBtn = document.getElementById("search-btn");
 let countryInp = document.getElementById("country-inp");
+let body = document.querySelector("body");
 searchBtn.addEventListener("click", () => {
   let countryName = countryInp.value;
   let finalURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
@@ -64,12 +65,22 @@ searchBtn.addEventListener("click", () => {
         result.innerHTML = `<h3>Please enter a valid country name.</h3>`;
       }
     });
+    setCountryImage()
 });
 
-fetch('https://api.unsplash.com/search/photos?page=1&query=mustang', {
-  headers: {
-    Authorization: 'Client-ID U7ST6T1J9DI5XAIxspN1RDPlTQbGIAC4KzzmKg70je4'
-  }
-})
-.then((response) => response.json())
-.then((data) => console.log(data.results[0].urls.raw))
+function setCountryImage () {
+  fetch('https://api.unsplash.com/search/photos?page=1&query=brazil', {
+    headers: {
+      Authorization: 'Client-ID U7ST6T1J9DI5XAIxspN1RDPlTQbGIAC4KzzmKg70je4'
+    }
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    let image = data.results[1].urls.regular
+    console.log(data)
+    body.style.backgroundImage = 'url(' + image + ')'
+  })
+
+}
+
+//Setar imagem no backgroun como background image
