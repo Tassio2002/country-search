@@ -76,7 +76,8 @@ function setCountryImage (countrySearched) {
   })
   .then((response) => response.json())
   .then((data) => {
-    let image = data.results[1].urls.regular
+    let randomNumber = Math.floor(Math.random() * 9)
+    let image = data.results[randomNumber].urls.regular
     console.log(data)
     body.style.backgroundImage = 'url(' + image + ')'
   })
