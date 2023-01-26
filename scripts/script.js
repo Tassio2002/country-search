@@ -1,5 +1,5 @@
-import { getCountry } from "./getCountry.js";
-import { setCountryImage } from "./getCountryImage.js";
+import { getCountry } from "./functions/getCountry.js";
+import { setCountryImage } from "./functions/getCountryImage.js";
 
 let searchBtn = document.getElementById("search-btn");
 let countryInp = document.getElementById("country-inp");
