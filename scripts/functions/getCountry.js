@@ -1,6 +1,6 @@
 export const getCountry = (countryName) => {
-  let finalURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
-  fetch(finalURL)
+  let url = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
+  fetch(url)
     .then((response) => response.json())
     .then((data) => {
       console.log(data[0]);
